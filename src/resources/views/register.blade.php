@@ -80,7 +80,12 @@ function validateForm() {
 <main>
     <div class="form__content">
     <h2 class="registe__title">会員登録</h2>
-<form class="form" action="/register" method="post" onsubmit="return validateForm()">
+    @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
+<form class="form" action="/email/verify" method="get" onsubmit="return validateForm()">
     @csrf
     <div class="form__input">
         <input class="input__form" type="text" name="name" id="name" placeholder="名前" value="{{ old('name') }}">

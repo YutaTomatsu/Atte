@@ -15,7 +15,7 @@
                     @endif
 
                     Click the following link to verify your email address:
-<a href="{{ route('verification.verify', ['id' => $id, 'hash' => $hash]) }}">Verify Email</a>
+<a href="{{ route('verification.send') }}">Verify Email</a>
 
                     {{ __('Before proceeding, please check your email for a verification link.') }}
                     {{ __('If you did not receive the email') }},

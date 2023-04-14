@@ -39,6 +39,7 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+            'middleware' => ['web', 'verified'],
         ],
     ],
 
@@ -107,5 +108,9 @@ return [
     */
 
     'password_timeout' => 10800,
+
+    'middleware' => [
+    'verified' => Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+],
 
 ];
