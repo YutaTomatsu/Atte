@@ -1,0 +1,96 @@
+body {
+    display: flex;
+    flex-direction: column
+
+}
+
+header {
+    background-color: white;
+    height: 70px;
+
+}
+
+.title {
+    font-size: 30px;
+    margin: 10px 0 10px 50px;
+}
+
+main {
+    
+    width: 100%;
+    background-color: #e6e6e6;
+    height: 630px;
+}
+
+.registe__title {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.input__form {
+    display: flex;
+    justify-content: center;
+}
+
+.submit__button {
+    display: flex;
+    justify-content: center;
+}
+
+.form__content {
+   
+    
+}
+
+.form__input input,button {
+    width: 400px;
+    height: 50px;
+    
+    border-radius: 7px;
+    border-color: #bfbfbf;
+    padding: 0 0 0 20px;
+    background-color: #e6e6e6;
+}
+
+.form__input button {
+    background-color: rgb(49, 49, 238);
+    color: white;
+    text-align: center;
+    padding: 15px 0 0 0;
+    border: none;
+}
+
+.login {
+   
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    color: #939090;
+    
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+small {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    
+    
+}
+
+.footer {
+    height: 30px;
+    padding: 10px 0 0 0;
+}
