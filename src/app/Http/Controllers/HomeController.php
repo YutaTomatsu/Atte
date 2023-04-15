@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('register');
+        return view('register')->with('status', '認証用メールが送信されました！');
     }
 
     public function register()

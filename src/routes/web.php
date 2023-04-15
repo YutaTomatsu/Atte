@@ -42,7 +42,7 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (Request $request) {
     $request->user()->markEmailAsVerified();
-    return redirect()->back()->with('status', '認証用メールが送信されました！');
+    return redirect("{{ route('register') }}")->with('status', '認証用メールが送信されました！');
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {

@@ -44,14 +44,18 @@
 
   <div class="rest">
 
-    <form method="post" action="rest/start">
+
+
+
+
+    <form method="post" action="rest/start" >
     @csrf
-    <button class="button2" type="submit" name="rest__start"  id="button1">休憩開始</button>
+    <button class="button2" type="submit" id="start_disabled" name="rest__start" @if(isset($start_disabled) && $start_disabled) disabled @endif>休憩開始 </button>
 </form>
 
-<form method="post" action="rest/end">
+<form method="post" action="rest/end" >
     @csrf
-    <button class="button1" type="submit" name="rest__end" id="button2">休憩終了</button>
+    <button class="button1" type="submit" id="end_disabled" name="rest__end" @if(isset($end_disabled) && $end_disabled) disabled @endif>休憩終了</button>
 </form>
   </div>
 
@@ -61,6 +65,66 @@
     <small>Atte, inc.
 
 </div>
+
+
+
+<script>
+function (clickBtn1){
+	
+	if (document.getElementById("b1").disabled === false){
+		// disabled属性を削除
+    document.getElementById("b1").setAttribute("disabled", true);
+		document.getElementById("b2").removeAttribute("disabled");
+		document.getElementById("b2").style.color = "black";
+    document.getElementById("b1").style.color = "White";
+   document.forms[3].submit();
+
+  }else{
+		// disabled属性を削除
+		document.getElementById("b1").removeAttribute("disabled");
+		document.getElementById("b1").style.color = "black";
+		// disabled属性を設定
+		document.getElementById("b2").setAttribute("disabled", true);
+		document.getElementById("b2").style.color = "White";
+    document.forms[4].submit();
+	}
+}
+
+
+</script>
+
+<script>
+    // 休憩開始ボタンが押されたとき
+    $('form[action="rest/start"]').submit(function (event) {
+        event.preventDefault();
+
+        $.post($(this).attr('action'), $(this).serialize(), function (data) {
+            // ボタンのdisabled属性を更新する
+            $('#b1').prop('disabled', true);
+            $('#b2').prop('disabled', false);
+        }).fail(function () {
+            alert('エラーが発生しました');
+        });
+    });
+
+    // 休憩終了ボタンが押されたとき
+    $('form[action="rest/end"]').submit(function (event) {
+        event.preventDefault();
+
+        $.post($(this).attr('action'), $(this).serialize(), function (data) {
+            // ボタンのdisabled属性を更新する
+            $('#b1').prop('disabled', false);
+            $('#b2').prop('disabled', true);
+        }).fail(function () {
+            alert('エラーが発生しました');
+        });
+    });
+</script>
+
+
+
+
+
 
 
 </body>

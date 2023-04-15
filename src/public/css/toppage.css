@@ -55,7 +55,7 @@ main {
     height: 170px;
     width: 400px;
     background-color: white;
-    color: #e6e6e6;
+    
     border: none;
     margin: 15px 15px 15px 15px;
     font-size: 20px;
@@ -65,7 +65,7 @@ main {
     height: 170px;
     width: 400px;
     background-color: white;
-    color: black;
+    
     border: none;
     margin: 15px 15px 15px 15px;
     font-size: 20px;
