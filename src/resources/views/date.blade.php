@@ -12,12 +12,19 @@
 <header>
     <h2 class="left__side">Atte</h2>
     <div class="right__side">
+        <a class="header__item" href="{{ route('user') }}">ユーザー一覧</a>
         <a class="header__item" href="{{ route('toppage') }}">ホーム</a>
         <a class="header__item"  href="{{ route('date') }}">日付一覧</a>
-        <a class="header__item" href="{{ route('logout') }}" >ログアウト</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
-    @csrf
-</form>
+        <form class="logout" method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')" class="header__item"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                ログアウト
+                            </x-dropdown-link>
+                        </form>
+        </div>
     </div>
 </header>
 

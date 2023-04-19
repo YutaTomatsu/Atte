@@ -1,0 +1,153 @@
+svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+}
+
+body {
+    display: flex;
+    flex-direction: column
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+
+}
+
+.left__side {
+    margin: 25px 0 0 30px;
+    font-size: 25px;
+}
+
+.logout {
+    padding: 27px 0 0 0;
+}
+
+.right__side {
+
+    width: 500px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.header__item {
+    color: black;
+    margin: auto 20px;
+    text-decoration: none;
+
+}
+
+main {
+
+
+    background-color: #e6e6e6;
+    height: 630px;
+
+}
+
+.attendance {
+    color: black;
+}
+
+
+small {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 15px 0 0 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.table__table {
+    width: 90%;
+    height: 400px;
+    border-collapse: collapse;
+
+
+}
+
+tr {
+    border: 1px solid black;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+
+}
+
+th {
+    height: 70px;
+}
+
+td {
+
+    text-align: center;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    margin: 40px auto;
+}
+
+.nav__btn {
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid blue;
+    width: 30px;
+    margin: auto 20px;
+    text-align: center;
+}
+
+
+
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+
+}
+
+.page-item {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e6e6e6;
+
+
+    text-align: center;
+    padding: 5px 0 0 0;
+
+    text-decoration: none;
+
+
+
+}
+
+
+.page-link {
+    text-decoration: none;
+}
+
+.active {
+    background-color: rgb(1, 114, 207);
+    text-align: center;
+    color: white !important;
+}
+
+
+
+
+
+.disabled {
+    color: rgb(1, 114, 207);
+
+}
+

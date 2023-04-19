@@ -1,51 +1,57 @@
 <?php
 
-namespace App\Mail;
+namespace Illuminate\Auth\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Mail\Mailable;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\URL;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Config;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\URL;
 
-class VerifyEmail extends Mailable
+class VerifyEmail extends Notification
 {
-    use Queueable, SerializesModels;
+    use Queueable;
 
-    protected $notifiable;
-
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct($notifiable)
+    public function __construct(User $user)
     {
-        $this->notifiable = $notifiable;
+        $this->user = $user;
     }
 
-    /**
-     * Build the message.
-     *
-     * @return $this
-     */
+    public function via($notifiable)
+    {
+        return ['mail'];
+    }
+
     public function build()
+{
+    return $this->view('emails.verify-email')->with([
+        'user' => $this->user,
+    ]);
+}
+
+    public function toMail($notifiable)
     {
-        return $this->to($this->notifiable->email)
-                    ->view('auth.verify')
-                    ->with(['url' => $this->verificationUrl($this->notifiable)]);
+        $verifyUrl = URL::temporarySignedRoute(
+            'verification.verify',
+            Carbon::now()->addMinutes(Config::get('auth.verification.expire', 10000)),
+            [
+                'id' => $notifiable->getKey(),
+                'hash' => sha1($notifiable->getEmailForVerification()),
+            ]
+        );
+
+        return (new MailMessage)
+            ->subject('Verify Email Address')
+            ->line('Please click the button below to verify your email address.')
+            ->action('Verify Email Address', $verifyUrl)
+            ->line('If you did not create an account, no further action is required.');
     }
 
-    public function verificationUrl($notifiable)
-{
-    return URL::temporarySignedRoute(
-        'verification.verify',
-        Carbon::now()->addMinutes(Config::get('auth.verification.expire', 60)),
-        ['id' => $notifiable->getKey(),
-        'hash' => sha1($notifiable->getEmailForVerification())
-        ]
-    );
-}
+    public function toArray($notifiable)
+    {
+        return [
+            //
+        ];
+    }
 }

@@ -17,15 +17,15 @@
 <main>
     <div class="form__content">
     <h2 class="register__title">会員登録</h2>
-    @if (session('status'))
+    @if (session('message'))
     <div class="alert alert-success" role="alert">
-        {{ session('status') }}
+        {{ session('message') }}
     </div>
 @endif
 <form class="form" action="/email/verify" method="get">
     @csrf
     <div class="form__input">
-        <input class="input__form" type="text" name="name" id="name" placeholder="名前" value="{{ old('name') }}">
+        <input class="input__form" type="text" name="name" id="name" placeholder="名前" value="{{ old('name') }}" >
         <p id="name__error"></p>
         <input class="input__form" type="email" name="email" id="email" placeholder="メールアドレス" value="{{ old('email') }}">
         <p id="email__error"></p>

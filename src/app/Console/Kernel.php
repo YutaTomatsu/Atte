@@ -29,4 +29,12 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
+    protected $middlewareGroups = [
+    'web' => [
+        // 他のミドルウェア
+        \App\Http\Middleware\VerifyCsrfToken::class,
+    ],
+    // 他のミドルウェアグループ
+];
 }

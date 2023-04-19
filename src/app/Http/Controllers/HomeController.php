@@ -21,9 +21,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function toppage()
     {
-        return view('register')->with('status', '認証用メールが送信されました！');
+        return view('dashboard');
     }
 
     public function register()
