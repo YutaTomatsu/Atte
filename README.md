@@ -1,6 +1,7 @@
 # アプリケーション名
 
 Atte
+![トップページ](https://github.com/YutaTomatsu/Atte/blob/main/%E3%83%86%E3%83%BC%E3%83%95%E3%82%99%E3%83%AB%E8%A8%AD%E8%A8%88.png?raw=true)
 
 ## 作成した目的
 
