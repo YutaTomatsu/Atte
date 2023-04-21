@@ -73,7 +73,7 @@
 
 <form method="post" action="rest/end" >
     @csrf
-    <button class="button1" type="submit" id="b2" name="rest__end" @if(isset($end_disabled) && $end_disabled) disabled @endif onclick="tclickBtn1()">休憩終了</button>
+    <button class="button1" type="submit" id="b2" name="rest__end" @if(isset($end_disabled) && $end_disabled) disabled @endif >休憩終了</button>
 </form>
   </div>
 

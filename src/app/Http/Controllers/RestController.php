@@ -22,7 +22,7 @@ class RestController extends Controller
         
         // すでに開始された休憩がある場合
         if ($rest && !$rest->end_time) {
-            return redirect()->back()->with('error', '既に休憩を開始しています');
+            return redirect()->back()->with('error', '休憩を開始できませんでした');
         }
 
         $newRest = new Rest;
@@ -33,16 +33,17 @@ class RestController extends Controller
         return redirect()->back()->with('success', '休憩を開始しました');
     }
 
-    public function end()
-    {
-        if (!$this->working) {
-            return redirect()->back()->with('error', 'この操作は勤務中のみ実行可能です');
-}
+ public function end(Request $request)
+{
+    if (!$this->working) {
+        return redirect()->back()->with('error', 'この操作は勤務中のみ実行可能です');
+    }
+
     $rest = Rest::where('attendance_id', Auth::id())->orderBy('id', 'desc')->first();
 
     // 休憩が開始されていない場合
     if (!$rest || $rest->end_time) {
-        return redirect()->back()->with('error', '既に休憩を終了しています');
+        return redirect()->back()->with('error', '休憩を終了できませんでした');
     }
 
     $rest->end_time = Carbon::now();
