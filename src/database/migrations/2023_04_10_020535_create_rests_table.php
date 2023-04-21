@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -34,3 +37,6 @@ class CreateRestsTable extends Migration
         Schema::dropIfExists('rests');
     }
 }
+
+
+
