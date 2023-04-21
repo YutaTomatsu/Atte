@@ -30,7 +30,7 @@ class RestController extends Controller
         $newRest->start_time = Carbon::now();
         $newRest->save();
 
-        return redirect()->back()->with(['start_disabled' => true, 'end_disabled' => false]);
+        return redirect()->back()->with('success', '休憩を開始しました');
     }
 
     public function end()
@@ -48,7 +48,7 @@ class RestController extends Controller
     $rest->end_time = Carbon::now();
     $rest->save();
 
-    return redirect()->back()->with(['start_disabled' => false, 'end_disabled' => true]);
+    return redirect()->back()->with('success', '休憩を終了しました');
 }
 
 public function __construct()

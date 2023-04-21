@@ -17,7 +17,7 @@ class UserAttendanceController extends Controller
     $prev_date = Carbon::parse($date)->subDay()->toDateString();
     $next_date = Carbon::parse($date)->addDay()->toDateString();
 
-    $user_id = $request->query('id');
+    $user_id = $request->query('user_id');
 
     if (!$user_id) {
         abort(404);
@@ -39,7 +39,6 @@ class UserAttendanceController extends Controller
         ->orderBy('attendances.start_time')
         ->paginate(10);
 
-    // 省略
     return view('userattendance', compact('attendances', 'user_id', 'date', 'prev_date', 'next_date'));
 }
 }

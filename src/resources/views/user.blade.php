@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,8 @@
     <div class="right__side">
         <a class="header__item" href="{{ route('user') }}">ユーザー一覧</a>
         <a class="header__item" href="{{ route('toppage') }}">ホーム</a>
-        <a class="header__item"  href="{{ route('date') }}">日付一覧</a>
+        <a class="header__item" href="{{ route('date') }}">日付一覧</a>
+        <div class=header__item>
         <form class="logout" method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -25,6 +29,7 @@
                             </x-dropdown-link>
                         </form>
         </div>
+        
     </div>
 </header>
 
@@ -46,7 +51,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td><a class="attendance" href="{{route('userattendance', ['id' => $user->id])}}">勤怠表</a></td>
+                    <td><a class="attendance" href="{{route('userattendance', ['id' => $user->id,'user_id' => $user->id])}}">勤怠表</a></td>
                 </tr>
             @endforeach
         </tbody>

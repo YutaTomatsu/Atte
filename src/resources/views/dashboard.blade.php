@@ -34,16 +34,19 @@
 <main>
   <h2 class="otsukare">{{ Auth::user()->name }}さんお疲れ様です！</h2>
   <div class="error">
+
   @if (session('error'))
     <div class="alert alert-danger">
         {{ session('error') }}
     </div>
   @endif
-    @if (session('sucsess'))
+
+    @if (session('success'))
     <div class="alert alert-danger">
-        {{ session('error') }}
+        {{ session('success') }}
     </div>
   @endif
+
   </div>
   <div class="job">
 <form method="post" action="attendance/start">
@@ -80,61 +83,6 @@
     <small>Atte, inc.
 
 </div>
-
-
-
-<script>
-function clickBtn1(){
-    if (document.getElementById("b1").disabled === false){
-        document.forms[3].submit();
-        document.getElementById("b1").setAttribute("disabled", true);
-        document.getElementById("b2").removeAttribute("disabled");
-        document.getElementById("b2").style.color = "black";
-        document.getElementById("b1").style.color = "white";
-    }else{
-        document.forms[4].submit();
-        document.getElementById("b1").removeAttribute("disabled");
-        document.getElementById("b1").style.color = "black";
-        document.getElementById("b2").setAttribute("disabled", true);
-        document.getElementById("b2").style.color = "white";
-    }
-}
-</script>
-
-
-<script>
-    // 休憩開始ボタンが押されたとき
-    $('form[action="rest/start"]').submit(function (event) {
-        event.preventDefault();
-
-        $.post($(this).attr('action'), $(this).serialize(), function (data) {
-            // ボタンのdisabled属性を更新する
-            $('#b1').prop('disabled', true);
-            $('#b2').prop('disabled', false);
-        }).fail(function () {
-            alert('エラーが発生しました');
-        });
-    });
-
-    // 休憩終了ボタンが押されたとき
-    $('form[action="rest/end"]').submit(function (event) {
-        event.preventDefault();
-
-        $.post($(this).attr('action'), $(this).serialize(), function (data) {
-            // ボタンのdisabled属性を更新する
-            $('#b1').prop('disabled', false);
-            $('#b2').prop('disabled', true);
-        }).fail(function () {
-            alert('エラーが発生しました');
-        });
-    });
-</script>
-
-
-
-
-
-
 
 </body>
 

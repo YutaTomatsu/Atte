@@ -14,7 +14,8 @@
     <div class="right__side">
         <a class="header__item" href="{{ route('user') }}">ユーザー一覧</a>
         <a class="header__item" href="{{ route('toppage') }}">ホーム</a>
-        <a class="header__item"  href="{{ route('date') }}">日付一覧</a>
+        <a class="header__item" href="{{ route('date') }}">日付一覧</a>
+        <div class=header__item>
         <form class="logout" method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -25,6 +26,7 @@
                             </x-dropdown-link>
                         </form>
         </div>
+        
     </div>
 </header>
 
@@ -55,7 +57,7 @@
                 <td>{{ $user->name }}</td>
                 <td>{{ date('H:i', strtotime($user->start_time)) }}</td>
                 <td>{{ $user->end_time ? date('H:i', strtotime($user->end_time)) : '' }}</td>
-                <td>{{ $user->rest_time }}</td>
+                <td>{{ $user->rest_time ??($user->work_time?'00:00:00':'')}}</td>
                 <td>{{ $user->work_time }}</td>
             </tr>
         @endforeach

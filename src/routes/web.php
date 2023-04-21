@@ -7,6 +7,7 @@ use App\Http\Controllers\DateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserAttendanceController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +19,8 @@ use App\Http\Controllers\UserAttendanceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[AuthenticatedSessionController::class, 'create']
+);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

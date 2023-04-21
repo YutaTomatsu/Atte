@@ -12,8 +12,10 @@
 <header>
     <h2 class="left__side">Atte</h2>
     <div class="right__side">
+        <a class="header__item" href="{{ route('user') }}">ユーザー一覧</a>
         <a class="header__item" href="{{ route('toppage') }}">ホーム</a>
-        <a class="header__item"  href="{{ route('date') }}">日付一覧</a>
+        <a class="header__item" href="{{ route('date') }}">日付一覧</a>
+        <div class=header__item>
         <form class="logout" method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -24,15 +26,16 @@
                             </x-dropdown-link>
                         </form>
         </div>
+        
     </div>
 </header>
 
 
 <main>
     <div class="nav-links">
-        <a class="nav__btn" href="{{ route('date', ['date' => $prev_date, 'user_id' => request()->query('user_id')]) }}">&lt;</a>
+        <a class="nav__btn" href="{{ route('userattendance', ['date' => $prev_date, 'user_id' => request()->query('user_id',$user_id)]) }}">&lt;</a>
         <span>{{ $date }}</span>
-        <a class="nav__btn" href="{{ route('date', ['date' => $next_date, 'user_id' => request()->query('user_id')]) }}">&gt;</a>
+        <a class="nav__btn" href="{{ route('userattendance', ['date' => $next_date, 'user_id' => request()->query('user_id',$user_id)]) }}">&gt;</a>
     </div>
 
     <table class="table__table">

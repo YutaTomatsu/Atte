@@ -13,7 +13,6 @@ header {
     display: flex;
     justify-content: space-between;
     height: 80px;
-
 }
 
 .left__side {
@@ -29,9 +28,7 @@ header {
     flex-direction: row;
 }
 
-.logout {
-    padding: 27px 0 0 0;
-}
+.logout {}
 
 .header__item {
     color: black;
@@ -116,33 +113,25 @@ td {
     width: 40px;
     height: 40px;
     border: 1px solid #e6e6e6;
-    
-    
     text-align: center;
     padding: 5px 0 0 0;
-    
-    text-decoration: none;
-
-    
-
 }
-
 
 .page-link {
     text-decoration: none;
+    color: rgb(1, 114, 207);
+}
+
+.disabled {
+    color: rgb(1, 114, 207);
+
 }
 
 .active {
     background-color: rgb(1, 114, 207);
     text-align: center;
-    color: white !important;
 }
 
-
-
-
-
-.disabled {
-    color: rgb(1, 114, 207);
-
+.active span.page-link {
+    color: white ;
 }

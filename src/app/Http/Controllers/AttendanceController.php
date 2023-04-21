@@ -29,7 +29,7 @@ class AttendanceController extends Controller
 
         $this->working = true; // 勤務中に設定
 
-        return redirect()->back()->with('success', '出勤しました。');
+        return redirect()->back()->with('success', '出勤しました');
     }
 
     public function end(Request $request)
@@ -52,7 +52,7 @@ class AttendanceController extends Controller
 
         $this->working = false; // 勤務中を解除
 
-        return redirect()->back()->with('success', '退勤しました。');
+        return redirect()->back()->with('success', '退勤しました');
     }
 }
 

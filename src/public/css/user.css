@@ -13,16 +13,11 @@ header {
     display: flex;
     justify-content: space-between;
     height: 80px;
-
 }
 
 .left__side {
     margin: 25px 0 0 30px;
     font-size: 25px;
-}
-
-.logout {
-    padding: 27px 0 0 0;
 }
 
 .right__side {
@@ -32,6 +27,8 @@ header {
     display: flex;
     flex-direction: row;
 }
+
+.logout {}
 
 .header__item {
     color: black;

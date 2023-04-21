@@ -33,19 +33,15 @@
     <div class="form__input">
         <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="input__form" type="email" name="email" :value="old('email')" required autofocus />
+                <x-input id="email" class="input__form" type="email" name="email" :value="old('email')" required autofocus placeholder="メールアドレス"/>
             </div>
         <p id="email__error"></p>
         <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
                 <x-input id="password" class="input__form"
                                 type="password"
                                 name="password"
-                                required autocomplete="current-password" />
+                                required autocomplete="current-password" placeholder="パスワード"/>
             </div>
         <p id="password__error"></p>
 
