@@ -35,6 +35,3 @@ Laravel 8.83.27
 
 ## ER図
 ![ER図](https://github.com/YutaTomatsu/Atte/blob/main/er%E5%9B%B3.png?raw=true)
-
-# 環境構築
-
