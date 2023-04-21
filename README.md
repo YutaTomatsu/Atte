@@ -9,9 +9,7 @@ Atte
 
 ##　　アプリケーションURL
 
-## 他のリポジトリ
-
-なし
+ec2-18-183-218-101.ap-northeast-1.compute.amazonaws.com
 
 ## 機能一覧
 
